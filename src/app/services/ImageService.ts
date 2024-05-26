@@ -21,7 +21,7 @@ export class ImageService {
     let headers = new HttpHeaders();
     headers = headers.append('enctype', 'multipart/form-data');
     console.log('uploading', formData)
-    return this.http.post<any>('http://localhost:3000/api/images/upload', formData, {
+    return this.http.post<any>(environment.apiUrl +  'images/upload', formData, {
       reportProgress: true, // If you want to track upload progress
       observe: 'events', // If you want to receive upload progress events
       headers: headers
