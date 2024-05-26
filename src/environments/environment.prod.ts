@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://felholab4backend.azurewebsites.net/api/',
-  loginRedirectURi: 'https://felholab4backend.azurewebsites.net/api/login'
+  apiUrl: 'https://felholab4.azurewebsites.net/api/',
+  loginRedirectURi: 'https://felholab4.azurewebsites.net/api/login'
 };
