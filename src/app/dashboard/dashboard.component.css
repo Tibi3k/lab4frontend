@@ -1,0 +1,8 @@
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  flex: 1;
+  padding: 16px;
+  height: 100%;
+}

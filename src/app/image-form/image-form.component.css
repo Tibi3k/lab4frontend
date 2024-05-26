@@ -1,0 +1,18 @@
+form {
+  width: 300px;
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  display: block;
+  margin-top: 5px;
+}
+
+
+.main-form {
+  display: flex;
+  
+}

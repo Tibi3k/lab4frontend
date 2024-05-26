@@ -1,0 +1,7 @@
+<div class="dashboard container">
+  <app-photo-card 
+    *ngFor="let image of images" 
+    [imageUrl]="image.imageUrl" 
+    [name]="image.imageName">
+  </app-photo-card>
+</div>
