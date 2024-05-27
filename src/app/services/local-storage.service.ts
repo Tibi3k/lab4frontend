@@ -13,10 +13,18 @@ export class LocalStorageService {
     localStorage.setItem('token', token);
   }
 
+  saveSub(sub: string) {
+    localStorage.setItem('sub', sub);
+  }
+
   // Retrieve token from local storage
   getToken(): string | null {
     return localStorage.getItem('token');
   }
+  getSub(): string | null {
+    return localStorage.getItem('sub');
+  }
+
 
   // Remove token from local storage
   removeToken() {

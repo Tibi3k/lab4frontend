@@ -20,7 +20,7 @@ export class AppComponent {
       const user = params['user'];
       console.log('Recived user:',user)
       if(user != undefined)
-        this.authService.setUser(new GoogleUserData(user))
+        this.authService.setSub(user)
       //this.router.navigate([], { queryParams: {} });
     });
   }}

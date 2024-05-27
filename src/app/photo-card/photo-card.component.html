@@ -4,7 +4,8 @@
     <h2>{{ name }}</h2>
     <h2>{{ createdAt }}</h2>
   </mat-card-content>
-  <button mat-icon-button class="delete-button" aria-label="Delete" (click)="deleteImage()">
+  <button mat-icon-button class="delete-button" aria-label="Delete" (click)="deleteImage()" 
+  *ngIf=" this.authService.getSub() == this.userId && this.userId != ''">
     <mat-icon>delete</mat-icon>
   </button>
 </mat-card>

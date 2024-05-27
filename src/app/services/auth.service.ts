@@ -8,11 +8,22 @@ import { LocalStorageService } from './local-storage.service';
 export class AuthService {
   constructor(private localStorageServcie: LocalStorageService){}
   private accessToken: string | null = null;
+  private sub: string | null = null;
   private user: GoogleUserData | null = null;
   setAccessToken(token: string) {
     this.localStorageServcie.saveToken(token)      
     this.accessToken = token;
   }
+  setSub(sub: string) {
+    this.localStorageServcie.saveSub(sub)      
+    this.sub = sub;
+  }
+  getSub(): string | null {
+    if(this.sub == null)
+      this.sub = this.localStorageServcie.getSub()
+    return this.sub;
+  }
+
 
   getAccessToken(): string | null {
     if(this.accessToken == null)
