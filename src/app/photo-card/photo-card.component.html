@@ -2,6 +2,7 @@
   <img mat-card-image [src]="imageSrc" alt="Photo"  (click)="onClick($event)" class="modal-hover-opacity" data-toggle="modal" data-target="#myModal">
   <mat-card-content>
     <h2>{{ name }}</h2>
+    <h2>{{ createdAt }}</h2>
   </mat-card-content>
   <button mat-icon-button class="delete-button" aria-label="Delete" (click)="deleteImage()">
     <mat-icon>delete</mat-icon>

@@ -15,6 +15,7 @@ export class PhotoCardComponent {
   @Input() imageUrl: string = "";
   @Input() _id: string = "";
   @Input() userId: string = "";
+  @Input() createdAt: string = "";
   @Output() deletedItems = new EventEmitter<string>();
 
   modalSrc: string = ""

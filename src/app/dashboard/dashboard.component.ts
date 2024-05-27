@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../services/ImageService';
 import { ImageSchema } from '../model/ImageSchema';
+import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,7 +9,7 @@ import { ImageSchema } from '../model/ImageSchema';
 })
 export class DashboardComponent implements OnInit {
   images: ImageSchema[] = [];
-
+  formatDate = formatDate
   constructor(private imageService: ImageService) {}
 
   ngOnInit(): void {

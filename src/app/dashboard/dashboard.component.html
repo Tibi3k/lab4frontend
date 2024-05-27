@@ -20,6 +20,7 @@
       [_id]="image._id"
       (deletedItems)="handleDelete($event)"
       [userId]="image.userId" 
+      [createdAt]="formatDate(image.createdAt, 'yyyy/MM/dd HH:mm:ss', 'en-US')" 
       [name]="image.imageName">
     </app-photo-card>
   </div>
