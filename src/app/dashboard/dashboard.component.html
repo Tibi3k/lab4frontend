@@ -1,7 +1,26 @@
-<div class="dashboard container">
-  <app-photo-card 
-    *ngFor="let image of images" 
-    [imageUrl]="image.imageUrl" 
-    [name]="image.imageName">
-  </app-photo-card>
+<div class="container">
+  <div class="d-flex flex-row justify-content-center w-100">
+    <button mat-flat-button color="accent" class="mt-4 mr-3 ml-3" (click)="sortByDateAsc()">
+      <span>Sort By Date ASC</span>
+    </button>
+    <button mat-flat-button color="accent"class="mt-4 mr-3 ml-3" (click)="sortByDateDesc()">
+      <span>Sort By Date DSC</span>
+    </button>
+    <button mat-flat-button color="accent"class="mt-4 mr-3 ml-3" (click)="sortByNameAsc()">
+      <span>Sort By Name ASC</span>
+    </button>
+    <button mat-flat-button color="accent"class="mt-4 mr-3 ml-3" (click)="sortByNameDesc()">
+      <span>Sort By Date DSC</span>
+    </button>
+  </div>
+  <div class="dashboard container">
+    <app-photo-card 
+      *ngFor="let image of images" 
+      [imageUrl]="image.imageUrl"
+      [_id]="image._id"
+      (deletedItems)="handleDelete($event)"
+      [userId]="image.userId" 
+      [name]="image.imageName">
+    </app-photo-card>
+  </div>
 </div>

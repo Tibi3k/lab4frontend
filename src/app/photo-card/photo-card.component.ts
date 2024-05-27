@@ -1,4 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input,Output,EventEmitter } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { ImageService } from '../services/ImageService';
+import { ImageUrlService } from '../services/imageurl.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-photo-card',
@@ -8,28 +13,37 @@ import { Component, Input } from '@angular/core';
 export class PhotoCardComponent {
   @Input() name: string = ""
   @Input() imageUrl: string = "";
+  @Input() _id: string = "";
+  @Input() userId: string = "";
+  @Output() deletedItems = new EventEmitter<string>();
 
+  modalSrc: string = ""
   imageSrc: string = ""; // Holds the dynamically created object URL
 
-  constructor() { }
+  constructor(public authService: AuthService, private imageService: ImageService, private router: Router, public imageUrlService: ImageUrlService){}
 
   ngOnInit(): void {
-    //this.downloadImage(this.imageUrl);
+    this.imageSrc = this.imageUrl.replace(/images/g, "thumbnails")
   }
 
-  downloadImage(url: string): void {
-    fetch(url)
-      .then(response => {
-        console.log(response)
-        return response.blob()
-      }) // Download the image as a Blob
-      .then(blob => {
-        console.log(blob)
-        this.imageSrc = URL.createObjectURL(blob); // Create object URL
-        console.log(this.imageSrc)
-      })
-      .catch(error => {
-        console.error('Error downloading image:', error);
-      });
+
+  onClick(event: any){
+    const imgElem = event.target;
+    var target = event.target || event.srcElement || event.currentTarget;
+    var srcAttr = target.attributes.src;
+    this.imageUrlService.setImagePath(this.imageUrl)
+    this.imageUrlService.setName(this.name)
+    this.modalSrc = srcAttr.nodeValue;
+  }
+
+  deleteImage(){
+    this.imageService.deleteImage(this._id).subscribe(res => {
+      console.log(res)
+      this.deletedItems.emit(this._id)
+    })
+  }
+
+  getId(){
+    return "#mymodal" + this._id
   }
 }

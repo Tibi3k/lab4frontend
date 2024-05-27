@@ -21,10 +21,13 @@ export class AuthService {
   }
 
   setUser(user: GoogleUserData) {
+    this.localStorageServcie.saveUser(user)      
     this.user = user;
   }
 
   getUser(): GoogleUserData | null {
+    if(this.user == null)
+      this.user = this.localStorageServcie.getUser()
     return this.user;
   }
 }

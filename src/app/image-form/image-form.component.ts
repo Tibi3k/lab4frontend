@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ImageService } from '../services/ImageService';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-image-form',
   templateUrl: './image-form.component.html',
@@ -10,7 +11,7 @@ export class ImageFormComponent {
   imageForm: FormGroup;
   selectedImage: File | undefined;
 
-  constructor(private fb: FormBuilder, private imageService: ImageService) {
+  constructor(private fb: FormBuilder, private imageService: ImageService, private router: Router) {
     this.imageForm = this.fb.group({
       userId: ['aswdfasdfasdf', Validators.required],
       imageName: ['', Validators.required],
@@ -48,9 +49,11 @@ export class ImageFormComponent {
       this.imageService.uploadImage(formData).subscribe(
         (response) => {
           console.log('Image uploaded successfully:', response);
+          this.router.navigate(['/']);
         },
         (error) => {
           console.error('Error uploading image:', error);
+          this.router.navigate(['/']);
         }
       )
     }

@@ -17,3 +17,12 @@ img {
   height: 100%;
   object-fit: cover;
 }
+
+
+p {
+  font-family: Lato;
+}
+.container1 {
+  width:180px;
+  display:inline-block;
+  }

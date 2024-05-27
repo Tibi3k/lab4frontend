@@ -1,9 +1,27 @@
 <mat-card class="card">
-  <button mat-icon-button class="delete-button" aria-label="Delete">
-    <mat-icon>delete</mat-icon>
-  </button>
-  <img mat-card-image [src]="imageUrl" alt="Photo">
+  <img mat-card-image [src]="imageSrc" alt="Photo"  (click)="onClick($event)" class="modal-hover-opacity" data-toggle="modal" data-target="#myModal">
   <mat-card-content>
     <h2>{{ name }}</h2>
   </mat-card-content>
+  <button mat-icon-button class="delete-button" aria-label="Delete" (click)="deleteImage()">
+    <mat-icon>delete</mat-icon>
+  </button>
 </mat-card>
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{this.imageUrlService.getName()}}</h4>
+        <button type="button" #closebutton class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      <img
+      [src]="this.imageUrlService.getImagePath()"
+      style="max-width:100%;cursor:pointer"
+      class="modal-hover-opacity"
+    /> 
+      </div>
+    </div>
+  </div>
+</div>

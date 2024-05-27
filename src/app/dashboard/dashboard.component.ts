@@ -17,4 +17,25 @@ export class DashboardComponent implements OnInit {
       this.images = data;
     });
   }
+
+  handleDelete(id: string) {
+    this.images = this.images.filter(i => i._id !== id);
+  }
+
+
+  sortByDateAsc() {
+    this.images.sort((a, b) => <any>new Date(a.createdAt) - <any>new Date(b.createdAt));
+  }
+
+  sortByDateDesc() {
+    this.images.sort((a, b) => <any>new Date(b.createdAt) - <any>new Date(a.createdAt));
+  }
+
+  sortByNameAsc() {
+    this.images.sort((a, b) => a.imageName.localeCompare(b.imageName));
+  }
+
+  sortByNameDesc() {
+    this.images.sort((a, b) => b.imageName.localeCompare(a.imageName));
+  }
 }

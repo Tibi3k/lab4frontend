@@ -2,8 +2,14 @@
   <button mat-button routerLink="/">
     <span>Photo app</span>
   </button>
-  <span class="spacer"></span>
-  <button mat-button routerLink="/upload">
+  
+  <button mat-button routerLink="/upload" *ngIf="authService.getAccessToken() !== '' && authService.getAccessToken() !== null">
     <span>Upload</span>
   </button>
+  
+  <!-- Spacer -->
+  <span class="spacer"></span>
+  
+  <!-- app-login component -->
+  <app-login></app-login>
 </mat-toolbar>

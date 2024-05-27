@@ -27,4 +27,9 @@ export class ImageService {
       headers: headers
     });
   }
+  deleteImage(id: string){
+    return this.http.delete(environment.apiUrl + 'images/' + id)
+  }
+
+
 }

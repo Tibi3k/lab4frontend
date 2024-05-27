@@ -38,7 +38,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ImageFormComponent,
     LoginComponent,
     DashboardComponent,
-    PhotoCardComponent
   ],
   imports: [
     BrowserModule,
